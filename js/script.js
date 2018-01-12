@@ -479,6 +479,7 @@ $(function() {
             area.label = row[0];
 
             if (area_name == "" || area_name == " ") {
+                window.alert('ひとつ◇' + row[0]); 
 
                 area.centerName = row[0];
             } else {
@@ -607,6 +608,7 @@ $(function() {
     var areacount = 0;
 
     for (var area_name in group) {
+
 
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
 
