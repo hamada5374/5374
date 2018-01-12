@@ -821,14 +821,16 @@ $(function() {
     }
 
     if (group_name == area_name) {
-       window.alert("①一緒：" + group_name + "：" + area_name); 
+       window.alert("①ON一緒：" + group_name + "：" + area_name); 
 
+    } else {
+
+       window.alert("②ON相違：" + group_name + "：" + area_name); 
     }
 
     if (area_name == -1) {
       //◇ setSelectedAreaName(-1);
       setSelectedAreaName(group_name);
-
 
       $("#accordion").html("");
       return;
