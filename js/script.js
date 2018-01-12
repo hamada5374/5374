@@ -473,20 +473,11 @@ $(function() {
         var group = areaGroup[group_name];
         for (var j in areas) {
             var area_name = areas[j];
-            //◇ if (area_name == "" || area_name == " ") continue;
-
+            if (area_name == "" || area_name == " ") continue;
             group[area_name] = area;
-            area.label = row[0];
-
-            if (area_name == "" || area_name == " ") {
-                window.alert('ひとつ◇' + row[0]); 
-
-                area.centerName = row[0];
-            } else {
-
-                area.centerName = row[1];
-            }
         }
+        area.label = row[0];
+        area.centerName = row[1];
 
         areaModels.push(area);
         //２列目以降の処理
@@ -850,6 +841,9 @@ $(function() {
   $("#select_area").change(function(data) {
     var area_name = $(data.target).val();
     var group_name = $("#select_group").val();
+
+    window.alert("チェンジ：" + group_name + "：" + area_name); 
+
     onChangeSelect(group_name, area_name);
   });
 
