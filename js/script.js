@@ -473,11 +473,19 @@ $(function() {
         var group = areaGroup[group_name];
         for (var j in areas) {
             var area_name = areas[j];
-            if (area_name == "" || area_name == " ") continue;
+            //◇ if (area_name == "" || area_name == " ") continue;
+
             group[area_name] = area;
+            area.label = row[0];
+
+            if (area_name == "" || area_name == " ") {
+
+                area.centerName = row[0];
+            } else {
+
+                area.centerName = row[1];
+            }
         }
-        area.label = row[0];
-        area.centerName = row[1];
 
         areaModels.push(area);
         //２列目以降の処理
@@ -587,21 +595,30 @@ $(function() {
     onChangeSelect(getSelectedGroupName(), getSelectedAreaName());
   }
 
+  //◇ 修正中ファンクション↓
   function createAreaSelect() {
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
     var select_html = "";
     var selected_name = getSelectedAreaName();
-    select_html += '<option value="-1">自治会を選択してください</option>';
+
     var group = areaGroup[$select_group.val()];
-    for (var area_name in group) {
-      var selected = (selected_name == area_name) ? 'selected="selected"': '';
-      select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';	    
+
+    if (group.length > 1) {
+        select_html += '<option value="-1">自治会を選択してください</option>';
+        for (var area_name in group) {
+          var selected = (selected_name == area_name) ? 'selected="selected"': '';
+          select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';	    
+        }
+    //◇  } else {
+    //◇    select_html += '<option value="-1">自治会を選択してください</option>';
     }
+
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
     $select_area.val(selected_name);
   }
+  //◇ 修正中ファンクション↑
 
   function createMenuList(after_action) {
     // 備考データを読み込む
