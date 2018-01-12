@@ -605,11 +605,11 @@ $(function() {
 
     for (var area_name in group) {
 
-     // if (area_name ==  ) {
+      if (area_name == select_group_name) {
 
-
-     // }
-
+          select_html += '<option value="-1">' + selected_name + '</option>';
+          break;
+      }
 
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
 
