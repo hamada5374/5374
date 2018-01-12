@@ -616,7 +616,7 @@ $(function() {
 
       select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
 
-      count += 1;
+      areacount += 1;
 
     }
 
