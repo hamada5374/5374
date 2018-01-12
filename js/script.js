@@ -859,7 +859,7 @@ $(function() {
     var area_name = $(data.target).val();
     var group_name = $("#select_group").val();
 
-    //window.alert("チェンジ：" + group_name + "：" + area_name); 
+    window.alert("セレクトエリア：" + group_name + "：" + area_name); 
 
     onChangeSelect(group_name, area_name);
   });
