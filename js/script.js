@@ -599,7 +599,15 @@ $(function() {
 
     var areacount = 0;
 
+    window.alert("セレクテッドネーム：" + selected_name); 
+
     for (var area_name in group) {
+
+     // if (area_name ==  ) {
+
+
+     // }
+
 
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
 
@@ -811,6 +819,7 @@ $(function() {
     }
     if (area_name == -1) {
       setSelectedAreaName(-1);
+
       $("#accordion").html("");
       return;
     }
@@ -842,7 +851,7 @@ $(function() {
     var area_name = $(data.target).val();
     var group_name = $("#select_group").val();
 
-    window.alert("チェンジ：" + group_name + "：" + area_name); 
+    //window.alert("チェンジ：" + group_name + "：" + area_name); 
 
     onChangeSelect(group_name, area_name);
   });
