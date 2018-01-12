@@ -595,11 +595,13 @@ $(function() {
     var select_html = "";
     var selected_name = getSelectedAreaName();
 
+    var select_group_name = getSelectedGroupName();
+
     var group = areaGroup[$select_group.val()];
 
     var areacount = 0;
 
-    window.alert("セレクテッドネーム：" + selected_name); 
+    window.alert("セレクテッドネーム：" + select_group_name + "：" selected_name); 
 
     for (var area_name in group) {
 
