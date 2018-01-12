@@ -591,6 +591,7 @@ $(function() {
     $select_group.val(value);
     createAreaSelect();
     console.log(value);
+
     if (value != -1) { $select_area.show(); }
     $select_area.val(getSelectedAreaName());
     onChangeSelect(getSelectedGroupName(), getSelectedAreaName());
@@ -609,7 +610,6 @@ $(function() {
 
     for (var area_name in group) {
 
-
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
 
       if (areacount == 0) {
@@ -619,8 +619,10 @@ $(function() {
       select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
 
       areacount += 1;
-
     }
+
+    window.alert("かうんと：" + areacount); 
+    
 
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
