@@ -601,7 +601,7 @@ $(function() {
 
     var areacount = 0;
 
-    window.alert("セレクテッドネーム：" + select_group_name + "：" selected_name); 
+    window.alert("セレクテッドネーム：" + select_group_name + "：" + selected_name); 
 
     for (var area_name in group) {
 
