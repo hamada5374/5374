@@ -826,7 +826,9 @@ $(function() {
     }
 
     if (area_name == -1) {
-      setSelectedAreaName(-1);
+      //◇ setSelectedAreaName(-1);
+      setSelectedAreaName(group_name);
+
 
       $("#accordion").html("");
       return;
