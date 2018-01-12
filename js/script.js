@@ -605,6 +605,11 @@ $(function() {
 
     for (var area_name in group) {
 
+      if (areacount < 2) {
+
+          window.alert("クリエイトエリアセレクト" + area_name);
+      }
+
       if (area_name == select_group_name) {
 
           select_html += '<option value="-1">' + selected_name + '</option>';
@@ -612,6 +617,8 @@ $(function() {
       }
 
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
+
+      if (area_name == 
 
       if (areacount == 0) {
           select_html += '<option value="-1">自治会を選択してください</option>';
