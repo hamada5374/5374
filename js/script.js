@@ -614,15 +614,16 @@ $(function() {
 
           select_html += '<option value="-1">' + selected_name + '</option>';
           break;
+      } else {
+
+          var selected = (selected_name == area_name) ? 'selected="selected"': '';
+
+          if (areacount == 0) {
+              select_html += '<option value="-1">自治会を選択してください</option>';
+          }
+
+          select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
       }
-
-      var selected = (selected_name == area_name) ? 'selected="selected"': '';
-
-      if (areacount == 0) {
-          select_html += '<option value="-1">自治会を選択してください</option>';
-      }
-
-      select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
 
       areacount += 1;
     }
