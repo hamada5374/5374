@@ -819,6 +819,12 @@ $(function() {
       $("#accordion").html("");
       return;
     }
+
+    if (group_name == area_name) {
+       window.alert("①一緒：" + group_name + "：" + area_name); 
+
+    }
+
     if (area_name == -1) {
       setSelectedAreaName(-1);
 
