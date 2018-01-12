@@ -618,8 +618,6 @@ $(function() {
 
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
 
-      if (area_name == 
-
       if (areacount == 0) {
           select_html += '<option value="-1">自治会を選択してください</option>';
       }
