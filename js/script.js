@@ -621,8 +621,7 @@ $(function() {
       areacount += 1;
     }
 
-    window.alert("かうんと：" + areacount); 
-    
+    //window.alert("かうんと：" + areacount); 
 
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
