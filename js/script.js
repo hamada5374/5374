@@ -604,14 +604,20 @@ $(function() {
 
     var group = areaGroup[$select_group.val()];
 
-    if (group.length > 1) {
-        select_html += '<option value="-1">自治会を選択してください</option>';
-        for (var area_name in group) {
-          var selected = (selected_name == area_name) ? 'selected="selected"': '';
-          select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';	    
-        }
-    //◇  } else {
-    //◇    select_html += '<option value="-1">自治会を選択してください</option>';
+    var areacount = 0;
+
+    for (var area_name in group) {
+
+      var selected = (selected_name == area_name) ? 'selected="selected"': '';
+
+      if (areacount == 0) {
+          select_html += '<option value="-1">自治会を選択してください</option>';
+      }
+
+      select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
+
+      count += 1;
+
     }
 
     $select_area.html(select_html);
