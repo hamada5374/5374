@@ -565,6 +565,8 @@ $(function() {
       options_html += '<option value="' + group + '">' + group + '</option>';
     }
 
+    window.alert("クリエイトセレクトボックス◇地区のボックス作成");
+
     $select_group.change(function (elem) {
       if ($select_group.val() == -1) {
         $select_area.val(-1);
