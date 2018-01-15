@@ -602,6 +602,9 @@ $(function() {
 
 
       if (areacount == 0) {
+
+          window.alert("クリエイトエリアセレクト：" + area_name + "：" + select_group_name);
+
           if (area_name =! select_group_name) {
 
               select_html += '<option value="-1">自治会を選択してください</option>';
