@@ -599,9 +599,15 @@ $(function() {
 
     for (var area_name in group) {
 
-      if (areacount < 2) {
+      if (areacount == 0) {
 
-          window.alert("①かうんと：" + areacount + "：" + area_name); 
+          window.alert("①かうんと：" + areacount + "：" + area_name);
+
+      } else {
+          if (areacount < 2) {
+
+              window.alert("②かうんと：" + areacount + "：" + area_name);
+          }
       }
 
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
@@ -611,7 +617,7 @@ $(function() {
       areacount += 1;
     }
 
-    window.alert("②かうんと：" + areacount); 
+    window.alert("③かうんと：" + areacount); 
 
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
