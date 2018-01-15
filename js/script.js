@@ -597,19 +597,21 @@ $(function() {
 
     var areacount = 0;
 
-
     for (var area_name in group) {
-      var selected = (selected_name == area_name) ? 'selected="selected"': '';
 
+      if (areacount < 2) {
+
+          window.alert("①かうんと：" + areacount + "：" + area_name); 
+      }
+
+      var selected = (selected_name == area_name) ? 'selected="selected"': '';
 
       select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
 
       areacount += 1;
-
     }
 
-    window.alert("かうんと：" + areacount); 
-
+    window.alert("②かうんと：" + areacount); 
 
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
