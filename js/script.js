@@ -601,7 +601,7 @@ $(function() {
 
       if (areacount == 0) {
 
-          if (selected_name == area_name) {
+          if (select_group_name == area_name) {
               window.alert("①○：" + areacount + "：" + selected_name + "：" + area_name);
 
           } else {
