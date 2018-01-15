@@ -600,10 +600,10 @@ $(function() {
     for (var area_name in group) {
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
 
+      window.alert("クリエイトエリアセレクト：" + areacount + "；" + area_name + "：" + select_group_name);
 
       if (areacount == 0) {
 
-          window.alert("クリエイトエリアセレクト：" + area_name + "：" + select_group_name);
 
           if (area_name =! select_group_name) {
 
@@ -611,9 +611,7 @@ $(function() {
           }
       }
 
-
-      select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';	    
-
+      select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
       areacount += 1;
     }
     $select_area.html(select_html);
