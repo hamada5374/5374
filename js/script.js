@@ -1,4 +1,4 @@
-"use strict";
+use strict;
 
 // 固定の休止期間 開始日12月30日
 var cblankStartMM = 12;
@@ -101,15 +101,15 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
   this.mflag = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   var monthSplitFlag=_cell.search(/:/)>=0
   if (monthSplitFlag) {
-    var flag = _cell.split(":");
-    this.dayCell = flag[0].split(" ");
-    var mm = flag[1].split(" ");
-  } else if (_cell.length == 2 && _cell.substr(0,1) == "*") {
-    this.dayCell = _cell.split(" ");
+    var flag = _cell.split(:);
+    this.dayCell = flag[0].split( );
+    var mm = flag[1].split( );
+  } else if (_cell.length == 2 && _cell.substr(0,1) == *) {
+    this.dayCell = _cell.split( );
     var mm = new Array();
   } else {
-    this.dayCell = _cell.split(" ");
-    var mm = new Array("4", "5", "6", "7", "8", "9", "10", "11", "12", "1", "2", "3");
+    this.dayCell = _cell.split( );
+    var mm = new Array(4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3);
   }
   for (var m in mm) {
     this.mflag[mm[m] - 1] = 1;
@@ -118,53 +118,53 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
   this.description;
   this.regularFlg = 1;      // 定期回収フラグ（デフォルトはオン:1）
 
-  var result_text = "";
+  var result_text = ;
   var today = new Date();
 
   for (var j in this.dayCell) {
     if (this.dayCell[j].length == 1) {
-      result_text += "毎週" + this.dayCell[j] + "曜日 ";
-    } else if (this.dayCell[j].length == 2 && this.dayCell[j].substr(0,1) != "*") {
-      result_text += "第" + this.dayCell[j].charAt(1) + this.dayCell[j].charAt(0) + "曜日 ";
-    } else if (this.dayCell[j].length == 2 && this.dayCell[j].substr(0,1) == "*") {
+      result_text += 毎週 + this.dayCell[j] + 曜日 ;
+    } else if (this.dayCell[j].length == 2 && this.dayCell[j].substr(0,1) != *) {
+      result_text += 第 + this.dayCell[j].charAt(1) + this.dayCell[j].charAt(0) + 曜日 ;
+    } else if (this.dayCell[j].length == 2 && this.dayCell[j].substr(0,1) == *) {
     } else {
       // 不定期回収の場合（YYYYMMDD指定）
       this.regularFlg = 0;  // 定期回収フラグオフ
     }
   }
   if (monthSplitFlag){
-    var monthList="";
+    var monthList=;
     for (var m in this.mflag) {
       if (this.mflag[m]){
         if (monthList.length>0){
-          monthList+=","
+          monthList+=,
         }
         //mを整数化
         monthList+=((m-0)+1)
       }
     };
-    monthList+="月 "
+    monthList+=月 
     result_text=monthList+result_text
   }
-  if (result_text == "") { result_text  = ""; }
+  if (result_text == ) { result_text  = ; }
 
   this.dayLabel = result_text;
 
-  var day_enum = ["日", "月", "火", "水", "木", "金", "土"];
+  var day_enum = [日, 月, 火, 水, 木, 金, 土];
 
   this.getDateLabel = function() {
     if (this.mostRecent === undefined) {
-	return this.getRemark() + "不明";
+	return this.getRemark() + 不明;
     }
 
-    var result_text = this.mostRecent.getFullYear() + "/" + (1 + this.mostRecent.getMonth()) + "/" + this.mostRecent.getDate() + ' (' + day_enum[this.mostRecent.getDay()] + ')';
+    var result_text = this.mostRecent.getFullYear() + / + (1 + this.mostRecent.getMonth()) + / + this.mostRecent.getDate() + ' (' + day_enum[this.mostRecent.getDay()] + ')';
 
-    if (this.bikohyoji != "") {
+    if (this.bikohyoji != ) {
 
-        return this.getRemark() + this.bikohyoji + "<br/>" + this.dayLabel + " " + result_text;
+        return this.getRemark() + this.bikohyoji + <br/> + this.dayLabel +   + result_text;
     } else {
 
-        return this.getRemark() + this.dayLabel + " " + result_text;
+        return this.getRemark() + this.dayLabel +   + result_text;
     }
   }
 
@@ -177,15 +177,15 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     return -1;
   }
   /**
-   * このごみ収集日が特殊な条件を持っている場合備考を返します。収集日データに"*n" が入っている場合に利用されます
+   * このごみ収集日が特殊な条件を持っている場合備考を返します。収集日データに*n が入っている場合に利用されます
    */
   this.getRemark = function getRemark() {
-    var ret = "";
+    var ret = ;
     this.dayCell.forEach(function(day){
-      if (day.substr(0,1) == "*") {
+      if (day.substr(0,1) == *) {
         remarks.forEach(function(remark){
           if (remark.id == day.substr(1,1)){
-            ret += remark.text + "<br/>";
+            ret += remark.text + <br/>;
           }
         });
       };
@@ -198,7 +198,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
 */
   this.calcMostRect = function(areaObj) {
     var day_mix = this.dayCell;
-    var result_text = "";
+    var result_text = ;
     var day_list = new Array();
 
     // 定期回収の場合
@@ -263,7 +263,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
             }
             //特定の週のみ処理する
             if (day_mix[j].length > 1) {
-              if ((week != day_mix[j].charAt(1) - 1) || ("*" == day_mix[j].charAt(0))) {
+              if ((week != day_mix[j].charAt(1) - 1) || (* == day_mix[j].charAt(0))) {
                 continue;
               }
             }
@@ -279,7 +279,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
         var month = parseInt(day_mix[j].substr(4, 2)) - 1;
         var day = parseInt(day_mix[j].substr(6, 2));
         var d = new Date(year, month, day);
-        if (d.toString() !== "Invalid Date") {
+        if (d.toString() !== Invalid Date) {
             day_list.push(d);
         }
       }
@@ -297,7 +297,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
     var now = new Date();
 
     // ◇ 
-    this.bikohyoji = "";
+    this.bikohyoji = ;
 
     for (var i in day_list) {
       if (this.mostRecent == null && now.getTime() < day_list[i].getTime() + 24 * 60 * 60 * 1000) {
@@ -328,12 +328,12 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
    計算したゴミの日一覧をリスト形式として取得します。
   */
   this.getDayList = function() {
-    var day_text = "<ul>";
+    var day_text = <ul>;
     for (var i in this.dayList) {
       var d = this.dayList[i];
-      day_text += "<li>" + d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate() + "</li>";
+      day_text += <li> + d.getFullYear() + / + (d.getMonth() + 1) + / + d.getDate() + </li>;
     };
-    day_text += "</ul>";
+    day_text += </ul>;
     return day_text;
   }
 }
@@ -342,7 +342,7 @@ var TrashModel = function(_lable, _cell, remarks, transferdata) {
 */
 var CenterRowModel = function(row) {
   function getDay(center, index) {
-    var tmp = center[index].split("/");
+    var tmp = center[index].split(/);
     return new Date(tmp[0], tmp[1] - 1, tmp[2]);
   }
 
@@ -421,21 +421,21 @@ $(function() {
 
 
   function getSelectedAreaName() {
-    var val = localStorage.getItem("selected_area_name");
+    var val = localStorage.getItem(selected_area_name);
     return val ? val : -1;
   }
 
   function setSelectedAreaName(name) {
-    localStorage.setItem("selected_area_name", name);
+    localStorage.setItem(selected_area_name, name);
   }
 
   function getSelectedGroupName() {
-    var val = localStorage.getItem("selected_group_name");
+    var val = localStorage.getItem(selected_group_name);
     return val ? val : -1;
   }
 
   function setSelectedGroupName(name) {
-    localStorage.setItem("selected_group_name", name);
+    localStorage.setItem(selected_group_name, name);
   }
 
   function csvToArray(filename, cb) {
@@ -443,15 +443,15 @@ $(function() {
       //CSVのパース作業
       //CRの解析ミスがあった箇所を修正しました。
       //以前のコードだとCRが残ったままになります。
-      // var csvdata = csvdata.replace("\r/gm", ""),
-       csvdata = csvdata.replace(/\r/gm, "");
-      var line = csvdata.split("\n"),
+      // var csvdata = csvdata.replace(\r/gm, ),
+       csvdata = csvdata.replace(/\r/gm, );
+      var line = csvdata.split(\n),
           ret = [];
       for (var i in line) {
         //空行はスルーする。
         if (line[i].length == 0) continue;
 
-        var row = line[i].split(",");
+        var row = line[i].split(,);
         ret.push(row);
       }
       cb(ret);
@@ -459,12 +459,12 @@ $(function() {
   }
 
   function updateAreaList() {
-    csvToArray("data/area_days.csv", function(tmp) {
+    csvToArray(data/area_days.csv, function(tmp) {
       var area_days_label = tmp.shift();
       for (var i in tmp) {
         var row = tmp[i];
         var area = new AreaModel();
-        var areas = row[0].split(" ");
+        var areas = row[0].split( );
         var group_name = areas.shift();
         if (!areaGroup.hasOwnProperty(group_name)) {
             areaGroup[group_name] = new Object();
@@ -473,7 +473,7 @@ $(function() {
         var group = areaGroup[group_name];
         for (var j in areas) {
             var area_name = areas[j];
-            if (area_name == "" || area_name == " ") continue;
+            if (area_name ==  || area_name ==  ) continue;
             group[area_name] = area;
         }
         area.label = row[0];
@@ -489,7 +489,7 @@ $(function() {
         }
       }
 
-      csvToArray("data/center.csv", function(tmp) {
+      csvToArray(data/center.csv, function(tmp) {
         //ゴミ処理センターのデータを解析します。
         //表示上は現れませんが、
         //金沢などの各処理センターの休止期間分は一週間ずらすという法則性のため
@@ -547,7 +547,7 @@ $(function() {
         createSelectBox();
 
         //デバッグ用
-        if (typeof dump == "function") {
+        if (typeof dump == function) {
           dump(areaModels);
         }
       });
@@ -559,10 +559,10 @@ $(function() {
     var $select_group = $('#select_group');
     var selected_group = $select_group.val();
     $select_area.hide();
-    var options_html = '<option value="-1" selected="selected">地区を選択してください</option>';
+    var options_html = '<option value=-1 selected=selected>地区を選択してください</option>';
     for (var i in groupOrder) {
       var group = groupOrder[i];
-      options_html += '<option value="' + group + '">' + group + '</option>';
+      options_html += '<option value=' + group + '>' + group + '</option>';
     }
 
     $select_group.change(function (elem) {
@@ -572,7 +572,7 @@ $(function() {
         return;
       }
       createAreaSelect();
-      $("#accordion").html("");
+      $(#accordion).html();
       $select_area.show();
       $select_area.val(-1);
       $select_area.change();
@@ -592,7 +592,7 @@ $(function() {
   function createAreaSelect() {
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
-    var select_html = "";
+    var select_html = ;
     var selected_name = getSelectedAreaName();
 
     var select_group_name = getSelectedGroupName();
@@ -601,34 +601,36 @@ $(function() {
 
     var areacount = 0;
 
-    window.alert("セレクテッドネーム：" + select_group_name + "：" + selected_name); 
+    window.alert(セレクテッドネーム： + select_group_name + ： + selected_name); 
 
     for (var area_name in group) {
 
       if (areacount < 2) {
 
-          window.alert("クリエイトエリアセレクト" + area_name);
+          window.alert(クリエイトエリアセレクト + area_name);
       }
 
       if (area_name == select_group_name) {
 
-          select_html += '<option value="-1">' + selected_name + '</option>';
+          select_html += '<option value=-1>' + selected_name + '</option>';
           break;
       } else {
 
-          var selected = (selected_name == area_name) ? 'selected="selected"': '';
+          var selected = (selected_name == area_name) ? 'selected=selected': '';
 
           if (areacount == 0) {
-              select_html += '<option value="-1">自治会を選択してください</option>';
+              if (area_name =! select_group_name) {
+                  select_html += '<option value=-1>自治会を選択してください</option>';
+              }
           }
 
-          select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
+          select_html += '<option value=' + area_name + ' ' + selected + '>' + area_name + '</option>';
       }
 
       areacount += 1;
     }
 
-    //window.alert("かうんと：" + areacount); 
+    //window.alert(かうんと： + areacount); 
 
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
@@ -638,7 +640,7 @@ $(function() {
 
   function createMenuList(after_action) {
     // 備考データを読み込む
-    csvToArray("data/remarks.csv", function(data) {
+    csvToArray(data/remarks.csv, function(data) {
       data.shift();
       for (var i in data) {
         remarks.push(new RemarkModel(data[i]));
@@ -646,7 +648,7 @@ $(function() {
     });
 
     // 振替日データを読み込む
-    csvToArray("data/transferdata.csv", function(data) {
+    csvToArray(data/transferdata.csv, function(data) {
       data.shift();
       for (var i in data) {
         transferdata.push(new TransferdateModel(data[i]));
@@ -654,13 +656,13 @@ $(function() {
       }
     });
 
-    csvToArray("data/description.csv", function(data) {
+    csvToArray(data/description.csv, function(data) {
       data.shift();
       for (var i in data) {
         descriptions.push(new DescriptionModel(data[i]));
       }
 
-      csvToArray("data/target.csv", function(data) {
+      csvToArray(data/target.csv, function(data) {
 
         data.shift();
         for (var i in data) {
@@ -674,7 +676,7 @@ $(function() {
           };
         }
         after_action();
-        $("#accordion2").show();
+        $(#accordion2).show();
 
       });
     });
@@ -703,9 +705,9 @@ $(function() {
     //  if (accordion_height>140) {accordion_height = accordion_height / descriptions.length;};
     //  if (accordion_height<130) {accordion_height=130;};
     //}
-    var styleHTML = "";
-    // ◇ var accordionHTML = "";
-    var accordionHTML = '   <div class="aname"> <div class="areaname"><p>' + area_name + "</p></div> </div>";
+    var styleHTML = ;
+    // ◇ var accordionHTML = ;
+    var accordionHTML = '   <div class=aname> <div class=areaname><p>' + area_name + </p></div> </div>;
     //アコーディオンの分類から対応の計算を行います。
     for (var i in areaModel.trash) {
       var trash = areaModel.trash[i];
@@ -715,89 +717,89 @@ $(function() {
        if (description.label != trash.label) {
           continue;
         }
-          var target_tag = "";
-          var furigana = "";
-          var target_tag = "";
+          var target_tag = ;
+          var furigana = ;
+          var target_tag = ;
           var targets = description.targets;
           for (var j in targets) {
             var target = targets[j];
             if (furigana != target.furigana) {
-              if (furigana != "") {
-                target_tag += "</ul>";
+              if (furigana != ) {
+                target_tag += </ul>;
               }
 
               furigana = target.furigana;
 
-              target_tag += '<h4 class="initials">' + furigana + "</h4>";
-              target_tag += "<ul>";
+              target_tag += '<h4 class=initials>' + furigana + </h4>;
+              target_tag += <ul>;
             }
 
-            target_tag += '<li style="list-style:none;">' + target.name + "</li>";
+            target_tag += '<li style=list-style:none;>' + target.name + </li>;
 
             // ◇スペース付加
             if (target.notice.length > 0) {
-               target_tag += '<p class="note">&ensp;' +  target.notice + "</p>";
+               target_tag += '<p class=note>&ensp;' +  target.notice + </p>;
             } else {
-               target_tag += '<p class="note">' + target.notice + "</p>";
+               target_tag += '<p class=note>' + target.notice + </p>;
             }
           }
 
-          target_tag += "</ul>";
+          target_tag += </ul>;
 
           var dateLabel = trash.getDateLabel();
           //あと何日かを計算する処理です。
-          var leftDayText = "";
+          var leftDayText = ;
 	  if (trash.mostRecent === undefined) {
-	    leftDayText == "不明";
+	    leftDayText == 不明;
 	  } else {
             var leftDay = Math.ceil((trash.mostRecent.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
 
             if (leftDay == 0) {
-              leftDayText = "今日";
+              leftDayText = 今日;
             } else if (leftDay == 1) {
-              leftDayText = "明日";
+              leftDayText = 明日;
             } else if (leftDay == 2) {
-              leftDayText = "明後日"
+              leftDayText = 明後日
             } else {
-              leftDayText = leftDay + "日後";
+              leftDayText = leftDay + 日後;
             }
 	  }
 
           styleHTML += '#accordion-group' + d_no + '{background-color:  ' + description.background + ';} ';
 
           accordionHTML +=
-            '<div class="accordion-group" id="accordion-group' + d_no + '">' +
-            '<div class="accordion-heading">' +
-            '<a class="accordion-toggle" style="height:' + accordion_height + 'px" data-toggle="collapse" data-parent="#accordion" href="#collapse' + i + '">' +
-            '<div class="left-day">' + leftDayText + '</div>' +
-            '<div class="accordion-table" >';
+            '<div class=accordion-group id=accordion-group' + d_no + '>' +
+            '<div class=accordion-heading>' +
+            '<a class=accordion-toggle style=height:' + accordion_height + 'px data-toggle=collapse data-parent=#accordion href=#collapse' + i + '>' +
+            '<div class=left-day>' + leftDayText + '</div>' +
+            '<div class=accordion-table >';
           if (ableSVG && SVGLabel) {
-            accordionHTML += '<img src="' + description.styles + '" alt="' + description.label + '"  />';
+            accordionHTML += '<img src=' + description.styles + ' alt=' + description.label + '  />';
           } else {
-            accordionHTML += '<p class="text-center">' + description.label + "</p>";
+            accordionHTML += '<p class=text-center>' + description.label + </p>;
           }
-          accordionHTML += "</div>" +
-            '<h6><p class="text-left date">' + dateLabel + "</p></h6>" +
-            "</a>" +
-            "</div>" +
-            '<div id="collapse' + i + '" class="accordion-body collapse">' +
-            '<div class="accordion-inner">' +
-            description.description + "<br />" + target_tag +
-            '<div class="targetDays"></div></div>' +
-            "</div>" +
-            "</div>";
+          accordionHTML += </div> +
+            '<h6><p class=text-left date>' + dateLabel + </p></h6> +
+            </a> +
+            </div> +
+            '<div id=collapse' + i + ' class=accordion-body collapse>' +
+            '<div class=accordion-inner>' +
+            description.description + <br /> + target_tag +
+            '<div class=targetDays></div></div>' +
+            </div> +
+            </div>;
       }
     }
 
-    $("#accordion-style").html('<!-- ' + styleHTML + ' -->');
+    $(#accordion-style).html('<!-- ' + styleHTML + ' -->');
 
-    var accordion_elm = $("#accordion");
+    var accordion_elm = $(#accordion);
     accordion_elm.html(accordionHTML);
 
     $('html,body').animate({scrollTop: 0}, 'fast');
 
     //アコーディオンのラベル部分をクリックしたら
-    $(".accordion-body").on("shown.bs.collapse", function() {
+    $(.accordion-body).on(shown.bs.collapse, function() {
       var body = $('body');
       var accordion_offset = $($(this).parent().get(0)).offset().top;
        body.animate({
@@ -806,9 +808,9 @@ $(function() {
 
     });
     //アコーディオンの非表示部分をクリックしたら
-    $(".accordion-body").on("hidden.bs.collapse", function() {
-     if ($(".in").length == 0) {
-        $("html, body").scrollTop(0);
+    $(.accordion-body).on(hidden.bs.collapse, function() {
+     if ($(.in).length == 0) {
+        $(html, body).scrollTop(0);
      }
     });
 
@@ -817,33 +819,36 @@ $(function() {
   function onChangeSelect(group_name, area_name) {
 
     //◇追加↓
-    $("html, body").scrollTop(0);
+    $(html, body).scrollTop(0);
     //◇追加↑
 
     if (group_name == -1) {
       setSelectedGroupName(-1);
-      $("#accordion").html("");
+      $(#accordion).html();
       return;
     }
 
     if (group_name == area_name) {
-       window.alert("①ON一緒：" + group_name + "：" + area_name); 
+       window.alert(①ON一緒： + group_name + ： + area_name); 
 
     } else {
 
-       window.alert("②ON相違：" + group_name + "：" + area_name); 
+       window.alert(②ON相違： + group_name + ： + area_name); 
     }
 
     if (area_name == -1) {
+
+      //☆☆☆！
+
       setSelectedAreaName(-1);
 
-      $("#accordion").html("");
+      $(#accordion).html();
       return;
     }
     setSelectedGroupName(group_name);
     setSelectedAreaName(area_name);
 
-    if ($("#accordion").children().length === 0 && descriptions.length === 0) {
+    if ($(#accordion).children().length === 0 && descriptions.length === 0) {
 
       createMenuList(function() {
         updateData(group_name, area_name);
@@ -864,11 +869,11 @@ $(function() {
     return -1;
   }
   //リストが選択されたら
-  $("#select_area").change(function(data) {
+  $(#select_area).change(function(data) {
     var area_name = $(data.target).val();
-    var group_name = $("#select_group").val();
+    var group_name = $(#select_group).val();
 
-    window.alert("セレクトエリア：" + group_name + "：" + area_name); 
+    window.alert(セレクトエリア： + group_name + ： + area_name); 
 
     onChangeSelect(group_name, area_name);
   });
@@ -877,17 +882,17 @@ $(function() {
   //位置情報をもとに地域を自動的に設定する処理です。
   //これから下は現在、利用されておりません。
   //将来的に使うかもしれないので残してあります。
-  $("#gps_area").click(function() {
+  $(#gps_area).click(function() {
     navigator.geolocation.getCurrentPosition(function(position) {
-      $.getJSON("area_candidate.php", {
+      $.getJSON(area_candidate.php, {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude
       }, function(data) {
         if (data.result == true) {
           var area_name = data.candidate;
           var index = getAreaIndex(area_name);
-          $("#select_area").val(index).change();
-          alert(area_name + "が設定されました");
+          $(#select_area).val(index).change();
+          alert(area_name + が設定されました);
         } else {
           alert(data.reason);
         }
@@ -899,24 +904,24 @@ $(function() {
   });
 
   if (getSelectedAreaName() == null) {
-    $("#accordion2").show();
-    $("#collapseZero").addClass("in");
+    $(#accordion2).show();
+    $(#collapseZero).addClass(in);
   }
   if (!navigator.geolocation) {
-    $("#gps_area").css("display", "none");
+    $(#gps_area).css(display, none);
   }
 
   function getGpsErrorMessage(error) {
     switch (error.code) {
       case error.PERMISSION_DENIED:
-        return "User denied the request for Geolocation."
+        return User denied the request for Geolocation.
       case error.POSITION_UNAVAILABLE:
-        return "Location information is unavailable."
+        return Location information is unavailable.
       case error.TIMEOUT:
-        return "The request to get user location timed out."
+        return The request to get user location timed out.
       case error.UNKNOWN_ERROR:
       default:
-        return "An unknown error occurred."
+        return An unknown error occurred.
     }
   }
   updateAreaList();
