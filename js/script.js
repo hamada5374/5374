@@ -595,6 +595,9 @@ $(function() {
     var select_group_name = getSelectedGroupName();
     var group = areaGroup[$select_group.val()];
 
+    var select_groupOBJ_name = group.name;
+
+
     var areacount = 0;
 
     for (var area_name in group) {
@@ -826,6 +829,8 @@ $(function() {
     }
     setSelectedGroupName(group_name);
     setSelectedAreaName(area_name);
+
+    window.alert("オンチェンジセレクト：" + group_name + "：" + area_name);
 
     if ($("#accordion").children().length === 0 && descriptions.length === 0) {
 
