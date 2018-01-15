@@ -602,17 +602,17 @@ $(function() {
       if (areacount == 0) {
 
           if (select_group_name == area_name) {
-              window.alert("①○：" + areacount + "：" + selected_name + "：" + area_name);
+              window.alert("①○：" + areacount + "：" + select_group_name + "：" + area_name);
 
           } else {
-              window.alert("②×：" + areacount + "：" + selected_name + "：" + area_name);
+              window.alert("②×：" + areacount + "：" + select_group_name + "：" + area_name);
 
               select_html += '<option value="-1">自治会を選択してください</option>';
           } 
       } else {
           if (areacount < 2) {
 
-              window.alert("③かうんと：" + areacount + "：" + area_name);
+              window.alert("③かうんと：" + areacount + "：" + select_group_name + "：" + area_name);
           }
       }
 
