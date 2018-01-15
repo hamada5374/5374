@@ -592,7 +592,6 @@ $(function() {
     var $select_group = $('#select_group');
     var select_html = "";
     var selected_name = getSelectedAreaName();
-    select_html += '<option value="-1">自治会を選択してください</option>';
     var group = areaGroup[$select_group.val()];
 
     var areacount = 0;
@@ -601,7 +600,10 @@ $(function() {
 
       if (areacount == 0) {
 
-          window.alert("①かうんと：" + areacount + "：" + area_name);
+          window.alert("新かうんと：" + areacount + "：" + area_name);
+
+          select_html += '<option value="-1">自治会を選択してください</option>';
+
 
       } else {
           if (areacount < 2) {
