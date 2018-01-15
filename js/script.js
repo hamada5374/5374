@@ -597,6 +597,7 @@ $(function() {
 
     var select_groupOBJ_name = group.name;
 
+    window.alert("クリエイトエリアセレクト：" + select_group_name + "：" + selected_name);
 
     var areacount = 0;
 
