@@ -592,6 +592,7 @@ $(function() {
     var $select_group = $('#select_group');
     var select_html = "";
     var selected_name = getSelectedAreaName();
+    var select_group_name = getSelectedGroupName();
     var group = areaGroup[$select_group.val()];
 
     var areacount = 0;
@@ -600,15 +601,18 @@ $(function() {
 
       if (areacount == 0) {
 
-          window.alert("新かうんと：" + areacount + "：" + area_name);
+          if (selected_name == select_group_name) {
+              window.alert("①○：" + areacount + "：" + selected_name + "：" + area_name);
 
-          select_html += '<option value="-1">自治会を選択してください</option>';
+          } else {
+              window.alert("②×：" + areacount + "：" + selected_name + "：" + area_name);
 
-
+              select_html += '<option value="-1">自治会を選択してください</option>';
+          } 
       } else {
           if (areacount < 2) {
 
-              window.alert("②かうんと：" + areacount + "：" + area_name);
+              window.alert("③かうんと：" + areacount + "：" + area_name);
           }
       }
 
@@ -619,7 +623,7 @@ $(function() {
       areacount += 1;
     }
 
-    window.alert("③かうんと：" + areacount); 
+    window.alert("④かうんと：" + areacount); 
 
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
