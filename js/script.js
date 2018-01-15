@@ -592,7 +592,7 @@ $(function() {
     var $select_group = $('#select_group');
     var select_html = "";
     var selected_name = getSelectedAreaName();
-    select_html += '<option value="-1">自治会を選択してください</option>';
+    //select_html += '<option value="-1">自治会を選択してください</option>';
     var group = areaGroup[$select_group.val()];
 
     var areacount = 0;
