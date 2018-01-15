@@ -592,27 +592,11 @@ $(function() {
     var $select_group = $('#select_group');
     var select_html = "";
     var selected_name = getSelectedAreaName();
-    //select_html += '<option value="-1">自治会を選択してください</option>';
+    select_html += '<option value="-1">自治会を選択してください</option>';
     var group = areaGroup[$select_group.val()];
-
-    var areacount = 0;
-
     for (var area_name in group) {
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
-
-      window.alert("クリエイトエリアセレクト：" + areacount + "；" + area_name + "：" + select_group_name);
-
-      if (areacount == 0) {
-
-
-          if (area_name =! select_group_name) {
-
-              select_html += '<option value="-1">自治会を選択してください</option>';
-          }
-      }
-
-      select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
-      areacount += 1;
+      select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';	    
     }
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
