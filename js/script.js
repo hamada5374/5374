@@ -647,8 +647,7 @@ $(function() {
         setSelectedGroupName(select_groupOBJ_name);
         setSelectedAreaName(area_name);
 
-
-        onChangeSelect(select_groupOBJ_name, area_name);
+      //  onChangeSelect(select_groupOBJ_name, area_name);
     }
 
   }
