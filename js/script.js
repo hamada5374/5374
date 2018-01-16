@@ -582,7 +582,9 @@ $(function() {
     $select_group.html(options_html);
     var value = getSelectedGroupName();
     $select_group.val(value);
-    createAreaSelect();
+    //◇けしてみる
+    //createAreaSelect();
+
     console.log(value);
     if (value != -1) { $select_area.show(); }
     $select_area.val(getSelectedAreaName());
