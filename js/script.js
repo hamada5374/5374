@@ -608,7 +608,7 @@ $(function() {
 
       if (areacount == 0) {
 
-          if (select_group_name == area_name) {
+          if (select_groupOBJ_name == area_name) {
               window.alert("①○：" + areacount + "：" + select_group_name + "：" + area_name);
 
               select_html += '<option value="-1">' + area_name + '</option>';
