@@ -597,8 +597,9 @@ $(function() {
     var select_group_name = getSelectedGroupName();
     var group = areaGroup[$select_group.val()];
 
-
     var select_groupOBJ_name = $select_group.val();
+
+    var cflg = 0;
 
     window.alert("クリエイトエリアセレクト：" + select_group_name + "：" + selected_name + "◇" + select_groupOBJ_name);
 
@@ -612,6 +613,7 @@ $(function() {
               window.alert("①○：" + areacount + "：" + select_groupOBJ_name + "：" + area_name);
 
               select_html += '<option value="-1">' + area_name + '</option>';
+              cflg += 1;
 
           } else {
               window.alert("②×：" + areacount + "：" + select_groupOBJ_name + "：" + area_name);
@@ -636,6 +638,15 @@ $(function() {
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
     $select_area.val(selected_name);
+
+    if (cflg > 0) {
+
+        setSelectedGroupName(select_groupOBJ_name);
+        setSelectedAreaName(area_name);
+
+        onChangeSelect(select_groupOBJ_name, area_name);
+    }
+
   }
 
   function createMenuList(after_action) {
