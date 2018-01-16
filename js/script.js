@@ -555,6 +555,9 @@ $(function() {
   }
 
   function createSelectBox () {
+
+    window.alert("クリエイトセレクトボックス");
+
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
     var selected_group = $select_group.val();
@@ -565,9 +568,10 @@ $(function() {
       options_html += '<option value="' + group + '">' + group + '</option>';
     }
 
-    //window.alert("クリエイトセレクトボックス◇地区のボックス作成");
-
     $select_group.change(function (elem) {
+
+      window.alert("セレクトグループチェンジ");
+
       if ($select_group.val() == -1) {
         $select_area.val(-1);
         $select_area.hide();
@@ -582,9 +586,7 @@ $(function() {
     $select_group.html(options_html);
     var value = getSelectedGroupName();
     $select_group.val(value);
-    //◇けしてみる
-    //createAreaSelect();
-
+    createAreaSelect();
     console.log(value);
     if (value != -1) { $select_area.show(); }
     $select_area.val(getSelectedAreaName());
@@ -592,74 +594,22 @@ $(function() {
   }
 
   function createAreaSelect() {
+
+    window.alert("クリエイトエリアセレクト");
+
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
     var select_html = "";
     var selected_name = getSelectedAreaName();
-    var select_group_name = getSelectedGroupName();
+    select_html += '<option value="-1">自治会を選択してください</option>';
     var group = areaGroup[$select_group.val()];
-
-    var select_groupOBJ_name = $select_group.val();
-
-    var cflg = 0;
-
-    //window.alert("クリエイトエリアセレクト：" + select_group_name + "：" + selected_name + "◇" + select_groupOBJ_name);
-
-    var areacount = 0;
-
     for (var area_name in group) {
-
-      if (areacount == 0) {
-
-          if (select_groupOBJ_name == area_name) {
-              window.alert("①○：" + areacount + "：" + select_groupOBJ_name + "：" + area_name);
-
-              select_html += '<option value="-1">' + area_name + '</option>';
-              cflg += 1;
-
-          } else {
-              window.alert("②×：" + areacount + "：" + select_groupOBJ_name + "：" + area_name);
-
-              select_html += '<option value="-1">自治会を選択してください</option>';
-          } 
-      } else {
-          if (areacount < 2) {
-
-              window.alert("③かうんと：" + areacount + "：" + select_group_name + "：" + area_name);
-          }
-
-          var selected = (selected_name == area_name) ? 'selected="selected"': '';
-
-          select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
-      }
-      areacount += 1;
+      var selected = (selected_name == area_name) ? 'selected="selected"': '';
+      select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';	    
     }
-
-    //window.alert("④かうんと：" + areacount); 
-
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
     $select_area.val(selected_name);
-
-    window.alert("ぜろ：" + cflg + "：" + areacount + "：" + select_groupOBJ_name + "：" + area_name); 
-
-    if (cflg > 0) {
-
-        setSelectedGroupName(select_groupOBJ_name);
-        setSelectedAreaName(area_name);
-
-       // if (select_groupOBJ_name == area_name) {
-
-            window.alert("○：" + cflg + "：" + areacount + "：" + select_groupOBJ_name + "：" + area_name); 
-            onChangeSelect(select_groupOBJ_name, area_name);
-
-       // } else {
-
-       //     window.alert("×：" + cflg + "：" + areacount + "：" + select_groupOBJ_name + "：" + area_name); 
-       // }
-    } else {
-        window.alert("×：" + cflg + "：" + areacount + "：" + select_groupOBJ_name + "：" + area_name); 
-    }
   }
 
   function createMenuList(after_action) {
@@ -716,6 +666,8 @@ $(function() {
     var group = areaGroup[group_name];
     var areaModel = group[area_name];
     var today = new Date();
+
+    window.alert("アップデートデータ：" + group_name + "：" + area_name);
 
     //直近の一番近い日付を計算します。
     areaModel.calcMostRect();
@@ -842,6 +794,8 @@ $(function() {
 
   function onChangeSelect(group_name, area_name) {
 
+    window.alert("オンチェンジセレクト：" + group_name + "：" + area_name);
+
     //◇追加↓
     $("html, body").scrollTop(0);
     //◇追加↑
@@ -858,8 +812,6 @@ $(function() {
     }
     setSelectedGroupName(group_name);
     setSelectedAreaName(area_name);
-
-    //window.alert("オンチェンジセレクト：" + group_name + "：" + area_name);
 
     if ($("#accordion").children().length === 0 && descriptions.length === 0) {
 
