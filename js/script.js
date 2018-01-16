@@ -610,20 +610,20 @@ $(function() {
       if (areacount == 0) {
 
           if (select_groupOBJ_name == area_name) {
-              //window.alert("①○：" + areacount + "：" + select_groupOBJ_name + "：" + area_name);
+              window.alert("①○：" + areacount + "：" + select_groupOBJ_name + "：" + area_name);
 
               select_html += '<option value="-1">' + area_name + '</option>';
               cflg += 1;
 
           } else {
-              //window.alert("②×：" + areacount + "：" + select_groupOBJ_name + "：" + area_name);
+              window.alert("②×：" + areacount + "：" + select_groupOBJ_name + "：" + area_name);
 
               select_html += '<option value="-1">自治会を選択してください</option>';
           } 
       } else {
           if (areacount < 2) {
 
-              //window.alert("③かうんと：" + areacount + "：" + select_group_name + "：" + area_name);
+              window.alert("③かうんと：" + areacount + "：" + select_group_name + "：" + area_name);
           }
 
           var selected = (selected_name == area_name) ? 'selected="selected"': '';
