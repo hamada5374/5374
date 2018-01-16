@@ -639,8 +639,7 @@ $(function() {
     $select_area.insertAfter($select_group);
     $select_area.val(selected_name);
 
-    window.alert("ぜろ：" + cflg + "：" + select_groupOBJ_name); 
-
+    window.alert("ぜろ：" + cflg + "：" + areacount + "：" + select_groupOBJ_name + "：" + area_name); 
 
     if (cflg > 0) {
 
