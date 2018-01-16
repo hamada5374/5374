@@ -639,10 +639,14 @@ $(function() {
     $select_area.insertAfter($select_group);
     $select_area.val(selected_name);
 
+    window.alert("ぜろ：" + cflg + "：" + select_groupOBJ_name); 
+
+
     if (cflg > 0) {
 
         setSelectedGroupName(select_groupOBJ_name);
         setSelectedAreaName(area_name);
+
 
         onChangeSelect(select_groupOBJ_name, area_name);
     }
