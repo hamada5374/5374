@@ -646,9 +646,11 @@ $(function() {
         setSelectedGroupName(select_groupOBJ_name);
         setSelectedAreaName(area_name);
 
-      //  onChangeSelect(select_groupOBJ_name, area_name);
-    }
+        if (select_groupOBJ_name != select_group_name) {
 
+            onChangeSelect(select_groupOBJ_name, area_name);
+        }
+    }
   }
 
   function createMenuList(after_action) {
