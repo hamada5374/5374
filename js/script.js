@@ -565,7 +565,7 @@ $(function() {
       options_html += '<option value="' + group + '">' + group + '</option>';
     }
 
-    window.alert("クリエイトセレクトボックス◇地区のボックス作成");
+    //window.alert("クリエイトセレクトボックス◇地区のボックス作成");
 
     $select_group.change(function (elem) {
       if ($select_group.val() == -1) {
@@ -601,7 +601,7 @@ $(function() {
 
     var cflg = 0;
 
-    window.alert("クリエイトエリアセレクト：" + select_group_name + "：" + selected_name + "◇" + select_groupOBJ_name);
+    //window.alert("クリエイトエリアセレクト：" + select_group_name + "：" + selected_name + "◇" + select_groupOBJ_name);
 
     var areacount = 0;
 
@@ -610,20 +610,20 @@ $(function() {
       if (areacount == 0) {
 
           if (select_groupOBJ_name == area_name) {
-              window.alert("①○：" + areacount + "：" + select_groupOBJ_name + "：" + area_name);
+              //window.alert("①○：" + areacount + "：" + select_groupOBJ_name + "：" + area_name);
 
               select_html += '<option value="-1">' + area_name + '</option>';
               cflg += 1;
 
           } else {
-              window.alert("②×：" + areacount + "：" + select_groupOBJ_name + "：" + area_name);
+              //window.alert("②×：" + areacount + "：" + select_groupOBJ_name + "：" + area_name);
 
               select_html += '<option value="-1">自治会を選択してください</option>';
           } 
       } else {
           if (areacount < 2) {
 
-              window.alert("③かうんと：" + areacount + "：" + select_group_name + "：" + area_name);
+              //window.alert("③かうんと：" + areacount + "：" + select_group_name + "：" + area_name);
           }
 
           var selected = (selected_name == area_name) ? 'selected="selected"': '';
@@ -633,7 +633,7 @@ $(function() {
       areacount += 1;
     }
 
-    window.alert("④かうんと：" + areacount); 
+    //window.alert("④かうんと：" + areacount); 
 
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
@@ -846,7 +846,7 @@ $(function() {
     setSelectedGroupName(group_name);
     setSelectedAreaName(area_name);
 
-    window.alert("オンチェンジセレクト：" + group_name + "：" + area_name);
+    //window.alert("オンチェンジセレクト：" + group_name + "：" + area_name);
 
     if ($("#accordion").children().length === 0 && descriptions.length === 0) {
 
