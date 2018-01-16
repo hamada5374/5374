@@ -646,15 +646,17 @@ $(function() {
         setSelectedGroupName(select_groupOBJ_name);
         setSelectedAreaName(area_name);
 
-        if (select_groupOBJ_name == select_group_name) {
+       // if (select_groupOBJ_name == area_name) {
 
             onChangeSelect(select_groupOBJ_name, area_name);
             window.alert("○：" + cflg + "：" + areacount + "：" + select_groupOBJ_name + "：" + area_name); 
 
-        } else {
+       // } else {
 
-            window.alert("×：" + cflg + "：" + areacount + "：" + select_groupOBJ_name + "：" + area_name); 
-        }
+       //     window.alert("×：" + cflg + "：" + areacount + "：" + select_groupOBJ_name + "：" + area_name); 
+       // }
+    } else {
+        window.alert("×：" + cflg + "：" + areacount + "：" + select_groupOBJ_name + "：" + area_name); 
     }
   }
 
