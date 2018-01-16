@@ -597,7 +597,8 @@ $(function() {
     var select_group_name = getSelectedGroupName();
     var group = areaGroup[$select_group.val()];
 
-    var select_groupOBJ_name = group.name;
+
+    var select_groupOBJ_name = $select_group.val();
 
     window.alert("クリエイトエリアセレクト：" + select_group_name + "：" + selected_name + "◇" + select_groupOBJ_name);
 
@@ -627,10 +628,6 @@ $(function() {
 
           select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
       }
-
-
-
-
       areacount += 1;
     }
 
