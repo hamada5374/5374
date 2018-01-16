@@ -599,7 +599,7 @@ $(function() {
 
     var select_groupOBJ_name = group.name;
 
-    window.alert("クリエイトエリアセレクト：" + select_group_name + "：" + selected_name);
+    window.alert("クリエイトエリアセレクト：" + select_group_name + "：" + selected_name + "◇" + select_groupOBJ_name);
 
     var areacount = 0;
 
