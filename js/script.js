@@ -627,17 +627,17 @@ $(function() {
 
 
     if (areacount == 1) {
-      window.alert("○：" + areacount + "；" + select_group_val + "：" + area_name_sv);
+      window.alert("Ａ○：" + areacount + "；" + select_group_val + "：" + area_name_sv);
 
 
       setSelectedGroupName(select_group_val);
       setSelectedAreaName(selected_name);
 
 
-      updateData(select_group_val, area_name_sv);
+      onChangeSelect(select_group_val, area_name_sv);
 
     } else {
-      window.alert("×：" + areacount + "；" + select_group_val + "：" + selected_name);
+      window.alert("Ｂ×：" + areacount + "；" + select_group_val + "：" + selected_name);
 
     }
 
