@@ -595,7 +595,7 @@ $(function() {
 
   function createAreaSelect() {
 
-    //window.alert("クリエイトエリアセレクト");
+    window.alert("クリエイトエリアセレクト");
 
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
