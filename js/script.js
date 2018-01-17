@@ -601,7 +601,7 @@ $(function() {
     var $select_group = $('#select_group');
     var select_html = "";
     var selected_name = getSelectedAreaName();
-    var areacount;
+    var areacount = 0;
 
     var group = areaGroup[$select_group.val()];
     var select_group_val = $select_group.val();
