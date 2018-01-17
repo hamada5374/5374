@@ -850,7 +850,7 @@ $(function() {
 
     // 金城 -1 金城
 
-    //☆ window.alert("オンチェンジセレクト前：" + group_name + "◇" + area_name + "：" + getname);
+    window.alert("オンチェンジセレクト前：" + group_name + "◇" + area_name + "：" + getname);
 
     //if (area_name == -1 && getname == -1) {
     if (area_name == -1) {
