@@ -595,7 +595,7 @@ $(function() {
 
   function createAreaSelect() {
 
-    window.alert("クリエイトエリアセレクト");
+    //window.alert("クリエイトエリアセレクト");
 
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
@@ -606,7 +606,7 @@ $(function() {
     var group = areaGroup[$select_group.val()];
     var select_group_val = $select_group.val();
 
-    window.alert("クリエイトエリアセレクト①");
+    //window.alert("クリエイトエリアセレクト①");
 
     for (var area_name in group) {
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
@@ -625,18 +625,18 @@ $(function() {
       areacount ++;
     }
 
-    window.alert("クリエイトエリアセレクト②");
+    //window.alert("クリエイトエリアセレクト②");
 
 
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
     $select_area.val(selected_name);
 
-    window.alert("クリエイトエリアセレクト③：" + areacount);
+    //window.alert("クリエイトエリアセレクト③：" + areacount);
 
     if (areacount < 2) {
 
-      window.alert("Ｑ○：" + areacount + "；" + select_group_val + "：" + area_name);
+      //window.alert("Ｑ○：" + areacount + "；" + select_group_val + "：" + area_name);
 
       setSelectedGroupName(select_group_val);
       setSelectedAreaName(area_name);
@@ -645,10 +645,10 @@ $(function() {
       //onChangeSelect(select_group_val, area_name);
 
     } else {
-      window.alert("Ｑ×：" + areacount + "；" + select_group_val + "：" + selected_name);
+      //window.alert("Ｑ×：" + areacount + "；" + select_group_val + "：" + selected_name);
 
     }
-    window.alert("クリエイトエリアセレクト④");
+    //window.alert("クリエイトエリアセレクト④");
 
   }
 
@@ -834,7 +834,7 @@ $(function() {
 
   function onChangeSelect(group_name, area_name) {
 
-    window.alert("オンチェンジセレクト：" + group_name + "：" + area_name);
+    //window.alert("オンチェンジセレクト：" + group_name + "：" + area_name);
 
     //◇追加↓
     $("html, body").scrollTop(0);
@@ -855,14 +855,14 @@ $(function() {
 
     if ($("#accordion").children().length === 0 && descriptions.length === 0) {
 
-      window.alert("オンチェンジセレクト○：" + group_name + "：" + area_name);
+      //window.alert("オンチェンジセレクト○：" + group_name + "：" + area_name);
 
       createMenuList(function() {
         updateData(group_name, area_name);
       });
     } else {
 
-      window.alert("オンチェンジセレクト×：" + group_name + "：" + area_name);
+      //window.alert("オンチェンジセレクト×：" + group_name + "：" + area_name);
 
       updateData(group_name, area_name);
     }
