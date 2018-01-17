@@ -851,11 +851,14 @@ $(function() {
 
     if ($("#accordion").children().length === 0 && descriptions.length === 0) {
 
+      window.alert("オンチェンジセレクト○：" + group_name + "：" + area_name);
+
       createMenuList(function() {
         updateData(group_name, area_name);
       });
     } else {
 
+      window.alert("オンチェンジセレクト×：" + group_name + "：" + area_name);
 
       updateData(group_name, area_name);
     }
