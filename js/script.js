@@ -830,7 +830,7 @@ $(function() {
 
   function onChangeSelect(group_name, area_name) {
 
-    //window.alert("オンチェンジセレクト：" + group_name + "：" + area_name);
+    window.alert("オンチェンジセレクト：" + group_name + "：" + area_name);
 
     //◇追加↓
     $("html, body").scrollTop(0);
