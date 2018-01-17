@@ -848,18 +848,18 @@ $(function() {
 
     var getname = getSelectedAreaName();
 
-      window.alert("オンチェンジセレクト前：" + getname + "：" + area_name);
+    window.alert("オンチェンジセレクト前：" + area_name + "：" + getname);
 
     if (area_name == -1 && getname == -1) {
 
-      window.alert("オンチェンジセレクト○：" + getname + "：" + area_name);
+      window.alert("オンチェンジセレクト○：" + area_name + "：" + getname);
       
       setSelectedAreaName(-1);
       $("#accordion").html("");
       return;
     } else {
 
-      window.alert("オンチェンジセレクト×：" + getname + "：" + area_name);
+      window.alert("オンチェンジセレクト×：" + area_name + "：" + getname);
 
     }
 
