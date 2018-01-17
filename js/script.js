@@ -556,7 +556,7 @@ $(function() {
 
   function createSelectBox () {
 
-    window.alert("クリエイトセレクトボックス");
+    //window.alert("クリエイトセレクトボックス");
 
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
@@ -570,7 +570,7 @@ $(function() {
 
     $select_group.change(function (elem) {
 
-      window.alert("セレクトグループチェンジ");
+      //window.alert("セレクトグループチェンジ");
 
       if ($select_group.val() == -1) {
         $select_area.val(-1);
@@ -595,7 +595,7 @@ $(function() {
 
   function createAreaSelect() {
 
-    window.alert("クリエイトエリアセレクト");
+    //window.alert("クリエイトエリアセレクト");
 
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
@@ -691,7 +691,7 @@ $(function() {
     var areaModel = group[area_name];
     var today = new Date();
 
-    window.alert("アップデートデータ：" + group_name + "：" + area_name);
+    //window.alert("アップデートデータ：" + group_name + "：" + area_name);
 
     //直近の一番近い日付を計算します。
     areaModel.calcMostRect();
@@ -818,7 +818,7 @@ $(function() {
 
   function onChangeSelect(group_name, area_name) {
 
-    window.alert("オンチェンジセレクト：" + group_name + "：" + area_name);
+    //window.alert("オンチェンジセレクト：" + group_name + "：" + area_name);
 
     //◇追加↓
     $("html, body").scrollTop(0);
