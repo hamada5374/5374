@@ -638,7 +638,7 @@ $(function() {
 
       //window.alert("Ｑ○：" + areacount + "；" + select_group_val + "：" + area_name);
 
-      setSelectedGroupName(select_group_val);
+      //setSelectedGroupName(select_group_val);
       setSelectedAreaName(area_name);
 
 
