@@ -636,9 +636,9 @@ $(function() {
 
     if (areacount < 2) {
 
-      window.alert("Ｑ○：" + areacount + "；" + select_group_val + "：" + selected_name);
+      window.alert("Ｑ○：" + areacount + "；" + select_group_val + "：" + area_name);
 
-      onChangeSelect(select_group_val, selected_name);
+      onChangeSelect(select_group_val, area_name);
 
     } else {
       window.alert("Ｑ×：" + areacount + "；" + select_group_val + "：" + selected_name);
