@@ -853,8 +853,6 @@ $(function() {
     if (area_name == -1 && getname == -1) {
 
       window.alert("オンチェンジセレクト○：" + getname + "：" + area_name);
-
-      if (getname )
       
       setSelectedAreaName(-1);
       $("#accordion").html("");
