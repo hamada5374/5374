@@ -870,6 +870,9 @@ $(function() {
           window.alert("オンチェンジセレクト③：" + group_name + "◇" + area_name + "：" + getname);
 
     }
+
+    window.alert("オンチェンジセレクト④：" + group_name + "◇" + area_name + "：" + getname);
+
     setSelectedGroupName(group_name);
     setSelectedAreaName(area_name);
 
