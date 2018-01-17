@@ -634,7 +634,7 @@ $(function() {
 
     window.alert("クリエイトエリアセレクト③：" + areacount);
 
-    if (areacount == 1) {
+    if (areacount === 1) {
       window.alert("Ｑ○：" + areacount + "；" + select_group_val + "：" + area_name_sv);
 
       onChangeSelect(select_group_val, area_name_sv);
