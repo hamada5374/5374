@@ -857,7 +857,8 @@ $(function() {
 
       if (group_name == getname) {
 
-          //☆ window.alert("オンチェンジセレクト①：" + group_name + "◇" + area_name + "：" + getname);
+          window.alert("オンチェンジセレクト①：" + group_name + "◇" + area_name + "：" + getname);
+
           area_name = getname;
 
       } else {
