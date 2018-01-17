@@ -627,20 +627,14 @@ $(function() {
 
 
     if (areacount == 1) {
-      window.alert("Ａ○：" + areacount + "；" + select_group_val + "：" + area_name_sv);
-
-
-      setSelectedGroupName(select_group_val);
-      setSelectedAreaName(selected_name);
-
+      window.alert("Ｑ○：" + areacount + "；" + select_group_val + "：" + area_name_sv);
 
       onChangeSelect(select_group_val, area_name_sv);
 
     } else {
-      window.alert("Ｂ×：" + areacount + "；" + select_group_val + "：" + selected_name);
+      window.alert("Ｑ×：" + areacount + "；" + select_group_val + "：" + selected_name);
 
     }
-
   }
 
   function createMenuList(after_action) {
