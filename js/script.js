@@ -638,7 +638,11 @@ $(function() {
 
       window.alert("Ｑ○：" + areacount + "；" + select_group_val + "：" + area_name);
 
-      onChangeSelect(select_group_val, area_name);
+      setSelectedGroupName(select_group_val);
+      setSelectedAreaName(area_name);
+
+
+      //onChangeSelect(select_group_val, area_name);
 
     } else {
       window.alert("Ｑ×：" + areacount + "；" + select_group_val + "：" + selected_name);
