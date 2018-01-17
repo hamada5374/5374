@@ -606,6 +606,8 @@ $(function() {
     var group = areaGroup[$select_group.val()];
     var select_group_val = $select_group.val();
 
+    window.alert("クリエイトエリアセレクト①");
+
     for (var area_name in group) {
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
 
@@ -614,17 +616,23 @@ $(function() {
               select_html += '<option value="-1">' + area_name + '</option>';
           } else {
               select_html += '<option value="-1">地域を選択してください</option>';
-              select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
+
+              select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';	    
           }
       } else {
           select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
       }
       areacount += 1;
     }
+
+    window.alert("クリエイトエリアセレクト②");
+
+
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
     $select_area.val(selected_name);
 
+    window.alert("クリエイトエリアセレクト③");
 
     if (areacount == 1) {
       window.alert("Ｑ○：" + areacount + "；" + select_group_val + "：" + area_name_sv);
@@ -635,6 +643,8 @@ $(function() {
       window.alert("Ｑ×：" + areacount + "；" + select_group_val + "：" + selected_name);
 
     }
+    window.alert("クリエイトエリアセレクト④");
+
   }
 
   function createMenuList(after_action) {
