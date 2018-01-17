@@ -855,15 +855,16 @@ $(function() {
     //if (area_name == -1 && getname == -1) {
     if (area_name == -1) {
 
-      if (group_name =! getname) {
+      if (group_name == getname) {
 
           window.alert("オンチェンジセレクト①：" + group_name + "◇" + area_name + "：" + getname);
+
+      } else {
+          window.alert("オンチェンジセレクト②：" + group_name + "◇" + area_name + "：" + getname);
       
           setSelectedAreaName(-1);
           $("#accordion").html("");
           return;
-      } else {
-          window.alert("オンチェンジセレクト②：" + group_name + "◇" + area_name + "：" + getname);
       }
     } else {
           window.alert("オンチェンジセレクト③：" + group_name + "◇" + area_name + "：" + getname);
