@@ -601,11 +601,26 @@ $(function() {
     var $select_group = $('#select_group');
     var select_html = "";
     var selected_name = getSelectedAreaName();
-    select_html += '<option value="-1">地域を選択してください</option>';
+    var areacount = 0;
+
     var group = areaGroup[$select_group.val()];
+    var select_group_val = $select_group.val();
+
     for (var area_name in group) {
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
-      select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';	    
+
+      if (areacount == 0) {
+          if (area_name == select_group_val) {
+              select_html += '<option value="-1">' + area_name + '</option>';
+              setSelectedAreaName(area_name);
+          } else {
+              select_html += '<option value="-1">地域を選択してください</option>';
+              select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
+          }
+      } else {
+          select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
+      }
+      areacount += 1;
     }
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
