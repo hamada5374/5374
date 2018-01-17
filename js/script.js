@@ -562,7 +562,7 @@ $(function() {
     var $select_group = $('#select_group');
     var selected_group = $select_group.val();
     $select_area.hide();
-    var options_html = '<option value="-1" selected="selected">地区を選択してください</option>';
+    var options_html = '<option value="-1" selected="selected">自治区を選択してください</option>';
     for (var i in groupOrder) {
       var group = groupOrder[i];
       options_html += '<option value="' + group + '">' + group + '</option>';
@@ -601,7 +601,7 @@ $(function() {
     var $select_group = $('#select_group');
     var select_html = "";
     var selected_name = getSelectedAreaName();
-    select_html += '<option value="-1">自治会を選択してください</option>';
+    select_html += '<option value="-1">地域を選択してください</option>';
     var group = areaGroup[$select_group.val()];
     for (var area_name in group) {
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
@@ -819,6 +819,8 @@ $(function() {
         updateData(group_name, area_name);
       });
     } else {
+
+
       updateData(group_name, area_name);
     }
   }
