@@ -556,11 +556,14 @@ $(function() {
 
   function createSelectBox () {
 
-    //window.alert("クリエイトセレクトボックス");
 
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
     var selected_group = $select_group.val();
+
+    window.alert("クリエイトセレクトボックス：" + selected_group);
+
+
     $select_area.hide();
     var options_html = '<option value="-1" selected="selected">自治区を選択してください</option>';
     for (var i in groupOrder) {
