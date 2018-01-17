@@ -845,16 +845,26 @@ $(function() {
       $("#accordion").html("");
       return;
     }
-    if (area_name == -1) {
 
-      var getname = getSelectedAreaName();
+    var getname = getSelectedAreaName();
 
-      window.alert("オンチェンジセレクト：" + getname + "：" + area_name);
+      window.alert("オンチェンジセレクト前：" + getname + "：" + area_name);
+
+    if (area_name == -1 && getname == -1) {
+
+      window.alert("オンチェンジセレクト○：" + getname + "：" + area_name);
+
+      if (getname )
       
       setSelectedAreaName(-1);
       $("#accordion").html("");
       return;
+    } else {
+
+      window.alert("オンチェンジセレクト×：" + getname + "：" + area_name);
+
     }
+
     setSelectedGroupName(group_name);
     setSelectedAreaName(area_name);
 
