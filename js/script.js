@@ -635,9 +635,10 @@ $(function() {
     window.alert("クリエイトエリアセレクト③：" + areacount);
 
     if (areacount < 2) {
-      window.alert("Ｑ○：" + areacount + "；" + select_group_val + "：" + area_name_sv);
 
-      onChangeSelect(select_group_val, area_name_sv);
+      window.alert("Ｑ○：" + areacount + "；" + select_group_val + "：" + selected_name);
+
+      onChangeSelect(select_group_val, selected_name);
 
     } else {
       window.alert("Ｑ×：" + areacount + "；" + select_group_val + "：" + selected_name);
