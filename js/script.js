@@ -846,6 +846,11 @@ $(function() {
       return;
     }
     if (area_name == -1) {
+
+      var getname = getSelectedAreaName();
+
+      window.alert("オンチェンジセレクト：" + getname + "：" + area_name);
+      
       setSelectedAreaName(-1);
       $("#accordion").html("");
       return;
