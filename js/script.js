@@ -615,7 +615,6 @@ $(function() {
       if (areacount == 0) {
           if (area_name == select_group_val) {
               select_html += '<option value="-1">' + area_name + '</option>';
-              setSelectedAreaName(area_name);
           } else {
               select_html += '<option value="-1">地域を選択してください</option>';
               select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
@@ -630,8 +629,17 @@ $(function() {
     $select_area.insertAfter($select_group);
     $select_area.val(selected_name);
 
+    window.alert("クリエイトエリアセレクト：" + areacount + "；" + select_group_val + "：" + area_name_sv);
+
     if (areacount == 1) {
+
+
+      setSelectedGroupName(select_group_val);
+      setSelectedAreaName(area_name_sv);
+
+
       updateData(select_group_val, area_name_sv);
+
     }
 
   }
