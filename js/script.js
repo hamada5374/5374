@@ -848,7 +848,7 @@ $(function() {
 
     var getname = getSelectedAreaName();
 
-    // -1 かなぎ
+    // 金城 -1 金城
 
     window.alert("オンチェンジセレクト前：" + group_name + "◇" + area_name + "：" + getname);
 
@@ -856,10 +856,15 @@ $(function() {
     if (area_name == -1) {
 
     //  window.alert("オンチェンジセレクト○：" + area_name + "：" + getname);
+
+      if (group_name =! getname) {
       
-      setSelectedAreaName(-1);
-      $("#accordion").html("");
-      return;
+          setSelectedAreaName(-1);
+          $("#accordion").html("");
+          return;
+
+      }
+
    // } else {
       
     //   window.alert("オンチェンジセレクト×：" + area_name + "：" + getname);
