@@ -606,6 +606,9 @@ $(function() {
     var group = areaGroup[$select_group.val()];
     var select_group_val = $select_group.val();
 
+    var area_name_sv = "";
+
+
     for (var area_name in group) {
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
 
@@ -616,6 +619,7 @@ $(function() {
           } else {
               select_html += '<option value="-1">地域を選択してください</option>';
               select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
+              area_name_sv = area_name;
           }
       } else {
           select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
@@ -625,6 +629,11 @@ $(function() {
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
     $select_area.val(selected_name);
+
+    if (areacount == 1) {
+      updateData(select_group_val, area_name_sv);
+    }
+
   }
 
   function createMenuList(after_action) {
