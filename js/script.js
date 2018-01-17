@@ -555,14 +555,9 @@ $(function() {
   }
 
   function createSelectBox () {
-
-
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
     var selected_group = $select_group.val();
-
-    window.alert("クリエイトセレクトボックス：" + selected_group);
-
 
     $select_area.hide();
     var options_html = '<option value="-1" selected="selected">自治区を選択してください</option>';
@@ -572,8 +567,6 @@ $(function() {
     }
 
     $select_group.change(function (elem) {
-
-      //window.alert("セレクトグループチェンジ");
 
       if ($select_group.val() == -1) {
         $select_area.val(-1);
@@ -598,8 +591,6 @@ $(function() {
 
   function createAreaSelect() {
 
-    //window.alert("クリエイトエリアセレクト");
-
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
     var select_html = "";
@@ -608,8 +599,6 @@ $(function() {
 
     var group = areaGroup[$select_group.val()];
     var select_group_val = $select_group.val();
-
-    //window.alert("クリエイトエリアセレクト①");
 
     for (var area_name in group) {
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
@@ -628,31 +617,15 @@ $(function() {
       areacount ++;
     }
 
-    //window.alert("クリエイトエリアセレクト②");
-
-
     $select_area.html(select_html);
     $select_area.insertAfter($select_group);
     $select_area.val(selected_name);
 
-    //window.alert("クリエイトエリアセレクト③：" + areacount);
-
     if (areacount < 2) {
-
-      //window.alert("Ｑ○：" + areacount + "；" + select_group_val + "：" + area_name);
 
       //setSelectedGroupName(select_group_val);
       setSelectedAreaName(area_name);
-
-
-      //onChangeSelect(select_group_val, area_name);
-
-    } else {
-      //window.alert("Ｑ×：" + areacount + "；" + select_group_val + "：" + selected_name);
-
     }
-    //window.alert("クリエイトエリアセレクト④");
-
   }
 
   function createMenuList(after_action) {
@@ -709,8 +682,6 @@ $(function() {
     var group = areaGroup[group_name];
     var areaModel = group[area_name];
     var today = new Date();
-
-    //window.alert("アップデートデータ：" + group_name + "：" + area_name);
 
     //直近の一番近い日付を計算します。
     areaModel.calcMostRect();
@@ -837,8 +808,6 @@ $(function() {
 
   function onChangeSelect(group_name, area_name) {
 
-    //window.alert("オンチェンジセレクト：" + group_name + "：" + area_name);
-
     //◇追加↓
     $("html, body").scrollTop(0);
     //◇追加↑
@@ -851,52 +820,31 @@ $(function() {
 
     var getname = getSelectedAreaName();
 
-    // 金城 -1 金城
-
-    window.alert("オンチェンジセレクト前：" + group_name + "◇" + area_name + "：" + getname);
-
-    //if (area_name == -1 && getname == -1) {
     if (area_name == -1) {
 
       if (group_name == getname) {
-
-          window.alert("オンチェンジセレクト①：" + group_name + "◇" + area_name + "：" + getname);
-
           area_name = getname;
-
       } else {
-          //☆ window.alert("オンチェンジセレクト②：" + group_name + "◇" + area_name + "：" + getname);
       
           setSelectedAreaName(-1);
           $("#accordion").html("");
           return;
       }
-    } else {
-          //☆ window.alert("オンチェンジセレクト③：" + group_name + "◇" + area_name + "：" + getname);
-
     }
-
-    //☆ window.alert("オンチェンジセレクト④：" + group_name + "◇" + area_name + "：" + getname);
 
     setSelectedGroupName(group_name);
     setSelectedAreaName(area_name);
 
     if ($("#accordion").children().length === 0 && descriptions.length === 0) {
 
-      //window.alert("オンチェンジセレクト○：" + group_name + "：" + area_name);
-
       createMenuList(function() {
         updateData(group_name, area_name);
       });
     } else {
 
-      //window.alert("オンチェンジセレクト×：" + group_name + "：" + area_name);
-
       updateData(group_name, area_name);
     }
   }
-
-
 
   function getAreaIndex(area_name) {
     for (var i in areaModels) {
