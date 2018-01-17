@@ -824,6 +824,12 @@ $(function() {
 
       if (group_name == getname) {
           area_name = getname;
+
+          //hide追加↓
+          var $select_area = $('#select_area');
+          $select_area.hide();
+          //hide追加↑
+
       } else {
       
           setSelectedAreaName(-1);
